@@ -1,0 +1,84 @@
+@import "@fontsource-variable/inter";
+@import "tailwindcss";
+
+@theme {
+  --font-sans:
+    "Inter Variable", ui-sans-serif, system-ui, -apple-system, "Segoe UI",
+    sans-serif;
+
+  /* Stream brand — the single primary color. Do not substitute another blue. */
+  --color-brand-50: #eef2ff;
+  --color-brand-500: #3562f6;
+  --color-brand-600: #1b4ef5;
+  --color-brand-700: #1740c9;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 5rem;
+  }
+
+  body {
+    background-color: #fff;
+    color: var(--color-slate-900);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  ::selection {
+    background-color: var(--color-brand-600);
+    color: #fff;
+  }
+
+  :where(a, button, summary, [tabindex]:not([tabindex="-1"])):focus-visible {
+    outline: 2px solid var(--color-brand-600);
+    outline-offset: 3px;
+  }
+
+  summary::-webkit-details-marker {
+    display: none;
+  }
+}
+
+@layer components {
+  /* Restrained hero atmosphere: a hairline grid that fades out. */
+  .hero-grid {
+    background-image:
+      linear-gradient(to right, rgb(15 23 42 / 0.05) 1px, transparent 1px),
+      linear-gradient(to bottom, rgb(15 23 42 / 0.05) 1px, transparent 1px);
+    background-size: 64px 64px;
+    mask-image: linear-gradient(to bottom, black, transparent 85%);
+  }
+
+  .hero-glow {
+    background: radial-gradient(
+      60% 55% at 72% 0%,
+      rgb(27 78 245 / 0.12),
+      transparent 72%
+    );
+  }
+
+  .cta-glow {
+    background: radial-gradient(
+      50% 80% at 50% 0%,
+      rgb(255 255 255 / 0.16),
+      transparent 70%
+    );
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
