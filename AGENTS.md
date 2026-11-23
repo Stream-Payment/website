@@ -51,6 +51,10 @@ npm run preview     # serve the production build
 
 ## SEO rules
 
+- The site is intentionally unindexed until launch. Keep the
+  `NUXT_PUBLIC_INDEXABLE` gate in `nuxt.config.ts`, `server/middleware/robots.ts`,
+  the robots/sitemap routes, and page `robots` meta in sync; do not hardcode
+  `index, follow` or an allow-all `robots.txt`.
 - Every page must render meaningful HTML on the server. Do not add
   client-only content that matters to search.
 - Keep `useSeoMeta` (title, description, canonical, OG/Twitter) and the JSON-LD
@@ -80,6 +84,8 @@ npm run preview     # serve the production build
 | --------------------------- | ----------------------------------- |
 | `NUXT_PUBLIC_SITE_URL`      | Canonical origin for SEO files      |
 | `NUXT_PUBLIC_DASHBOARD_URL` | Sign-in / dashboard link destination |
+| `NUXT_PUBLIC_INDEXABLE`     | `true` opens the site to crawlers   |
 
-Both are public and read through `useRuntimeConfig().public`. Their built-in
-defaults are `https://streampayjm.com` and `https://app.streampayjm.com`.
+All are public and read through `useRuntimeConfig().public`. The URL defaults
+are `https://streampayjm.com` and `https://app.streampayjm.com`;
+`NUXT_PUBLIC_INDEXABLE` defaults to `false` (stealth mode).

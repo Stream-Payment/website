@@ -1,7 +1,8 @@
 <script setup lang="ts">
 import { faqs } from "~/utils/site";
 
-const { siteUrl } = useRuntimeConfig().public;
+const { siteUrl, indexable } = useRuntimeConfig().public;
+const allowIndexing = String(indexable) === "true";
 const base = siteUrl.replace(/\/+$/, "");
 const canonical = `${base}/`;
 const ogImage = `${base}/og.png`;
@@ -27,7 +28,9 @@ useSeoMeta({
   twitterTitle: title,
   twitterDescription: description,
   twitterImage: ogImage,
-  robots: "index, follow, max-image-preview:large",
+  robots: allowIndexing
+    ? "index, follow, max-image-preview:large"
+    : "noindex, nofollow",
 });
 
 const schema = {

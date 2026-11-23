@@ -34,17 +34,31 @@ npm run preview     # serve the production build locally
 
 ## Environment
 
-Copy `.env.example` to `.env` for local overrides. Both values are public.
+Copy `.env.example` to `.env` for local overrides. All three values are public.
 
-| Variable                    | Purpose                                        | Fallback                      |
-| --------------------------- | ---------------------------------------------- | ----------------------------- |
+| Variable                    | Purpose                                         | Fallback                      |
+| --------------------------- | ----------------------------------------------- | ----------------------------- |
 | `NUXT_PUBLIC_SITE_URL`      | Canonical URL, Open Graph URLs, sitemap, robots | `https://streampayjm.com`     |
 | `NUXT_PUBLIC_DASHBOARD_URL` | “Sign in” / “Open the dashboard” destination    | `https://app.streampayjm.com` |
+| `NUXT_PUBLIC_INDEXABLE`     | Opens the site to search engines                | `false`                       |
 
 Set `NUXT_PUBLIC_SITE_URL` to the real origin in production — canonical tags,
 `og:url`, `og:image`, `robots.txt`, and `sitemap.xml` are all derived from it.
 It defaults to `https://streampayjm.com`, so a plain Vercel deploy is correct
 without any environment variables.
+
+### Stealth mode (default)
+
+The site ships unindexed. While `NUXT_PUBLIC_INDEXABLE` is unset or `false`:
+
+- `robots.txt` returns `Disallow: /` for every crawler.
+- Every response carries `X-Robots-Tag: noindex, nofollow, noarchive`.
+- Pages set `<meta name="robots" content="noindex, nofollow">`.
+- `sitemap.xml` is an empty `<urlset>`, so nothing is advertised.
+
+At launch, set `NUXT_PUBLIC_INDEXABLE=true` in the production environment
+(and redeploy) to restore `Allow: /`, the index/follow meta tag, and the
+sitemap entry. Nothing else needs to change.
 
 ## Deploy to Vercel
 
@@ -56,9 +70,11 @@ without any environment variables.
    Preview if you want to be explicit — both are the built-in defaults.
 4. Add `streampayjm.com` as the project domain and redirect `www.streampayjm.com`
    to the apex so canonical URLs stay consistent.
-5. After the first deploy, confirm `https://streampayjm.com/robots.txt`,
-   `/sitemap.xml`, and `/og.png` resolve, then submit the sitemap in Google
-   Search Console and run the [Rich Results Test](https://search.google.com/test/rich-results).
+5. After the first deploy, confirm `https://streampayjm.com/robots.txt` returns
+   `Disallow: /` and `/og.png` resolves. Do not submit the sitemap while the
+   site is in stealth mode. At launch, set `NUXT_PUBLIC_INDEXABLE=true`,
+   redeploy, then submit `/sitemap.xml` in Google Search Console and run the
+   [Rich Results Test](https://search.google.com/test/rich-results).
 
 Or from the CLI:
 
@@ -123,6 +139,8 @@ The page should balance the business case with developer credibility.
 - Open Graph and Twitter card metadata, with a 1200×630 `public/og.png`.
 - JSON-LD graph: `Organization`, `WebSite`, `WebPage`, and `FAQPage`.
 - `robots.txt` and `sitemap.xml` generated from `NUXT_PUBLIC_SITE_URL`.
+- Unindexed by default (`NUXT_PUBLIC_INDEXABLE=false`): disallow-all robots,
+  `X-Robots-Tag` header, noindex meta, and an empty sitemap until launch.
 - Security headers (`nosniff`, `Referrer-Policy`, `X-Frame-Options`,
   `Permissions-Policy`) via `routeRules`.
 - One `<h1>`, ordered heading levels, landmark elements, and a skip link.

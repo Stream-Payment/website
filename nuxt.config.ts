@@ -38,6 +38,8 @@ export default defineNuxtConfig({
       dashboardUrl:
         process.env.NUXT_PUBLIC_DASHBOARD_URL ??
         "https://app.streampayjm.com",
+      // Stealth by default. Set NUXT_PUBLIC_INDEXABLE=true at launch.
+      indexable: process.env.NUXT_PUBLIC_INDEXABLE === "true",
     },
   },
 
