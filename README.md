@@ -1,7 +1,8 @@
-# Stream — website
+# Stream Payments — website
 
-The public marketing site for Stream: a single, server-rendered page built with
-Nuxt 4, Vue 3, and Tailwind CSS 4. Designed for Vercel.
+The public marketing site for Stream Payments, payment infrastructure for the
+Caribbean. A single, server-rendered page built with Nuxt 4, Vue 3, and Tailwind
+CSS 4, designed for Vercel.
 
 ## Stack
 
@@ -102,6 +103,20 @@ Most copy lives in `app/utils/site.ts`. Section components read from it, and the
 FAQ answers are reused for the `FAQPage` structured data, so editing an answer
 updates both the page and the schema.
 
+## Copy
+
+The page should balance the business case with developer credibility.
+
+- Lead with the problem Stream removes: separate gateway setup, bank-by-bank
+  integration, and building recurring billing yourself.
+- Keep the SDK, API, and security sections. They are part of the value, not a
+  separate audience.
+- Do not mention the underlying gateway or specific bank partners anywhere in
+  the copy.
+- Use `pk_test_...` in examples, never a live key. Do not publish iframe,
+  postMessage, permission, or other implementation internals.
+- Avoid fabricated claims about customers, certification, uptime, or pricing.
+
 ## SEO
 
 - Server-rendered HTML with a unique title, description, and canonical URL.
@@ -123,7 +138,8 @@ These match the rest of the Stream product:
 - **Semantic colors:** slate for neutrals, red/amber/emerald for feedback only —
   never the brand color for status.
 - **Type:** self-hosted Inter Variable via `@fontsource-variable/inter`.
-- **Tone:** calm, direct, no fabricated logos, testimonials, or pricing.
+- **Tone:** calm, direct, Caribbean-focused, no fabricated logos, testimonials,
+  or pricing.
 
 ## Notes
 

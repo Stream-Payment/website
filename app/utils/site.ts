@@ -8,9 +8,12 @@ export const navLinks = [
 
 export type FeatureIconName =
   | "checkout"
-  | "card"
-  | "tag"
+  | "repeat"
+  | "bank"
   | "users"
+  | "tag"
+  | "dashboard"
+  | "card"
   | "activity"
   | "key";
 
@@ -23,55 +26,55 @@ export const features: {
     icon: "checkout",
     title: "Hosted checkout",
     description:
-      "Drop a sandboxed checkout into any page. The hosted form handles validation, 3-D Secure hand-offs, and responsive layout.",
+      "Drop a mobile-first checkout into any site, with the payment methods your customers expect.",
   },
   {
-    icon: "card",
-    title: "Cards on file",
+    icon: "repeat",
+    title: "Recurring payments",
     description:
-      "Register a card without charging it, then charge the same customer later. Saved payment methods belong to the customer, not the browser.",
+      "Subscriptions and repeat charges without building and maintaining a billing engine.",
+  },
+  {
+    icon: "bank",
+    title: "Fast payouts",
+    description:
+      "We remit what you collect to your business account, with no manual follow-up.",
+  },
+  {
+    icon: "users",
+    title: "Customers & saved cards",
+    description:
+      "Keep customer profiles, saved payment methods, and payment history together.",
   },
   {
     icon: "tag",
     title: "Products & prices",
     description:
-      "Model your catalogue once — products, categories, and prices in the currency you actually sell in.",
+      "Model what you sell, in the currencies your customers use.",
   },
   {
-    icon: "users",
-    title: "Customers",
+    icon: "dashboard",
+    title: "One dashboard",
     description:
-      "Keep profiles, billing addresses, and saved cards together, with a detail view that connects a person to their payment history.",
-  },
-  {
-    icon: "activity",
-    title: "Transactions",
-    description:
-      "Follow every attempt from processing to settled, with card brand, last four, ISO response codes, and the provider reference.",
-  },
-  {
-    icon: "key",
-    title: "API keys & permissions",
-    description:
-      "Mint publishable and secret keys with granular CRUD permissions, set an expiry, and revoke them instantly.",
+      "Payments, customers, and products in one clear view of your business.",
   },
 ];
 
 export const steps = [
   {
-    title: "Create a key",
+    title: "Create your account",
     description:
-      "Open the dashboard and mint an API key. Give it only the permissions it needs — publishable keys are built for the browser.",
+      "Sign up, add your business details, and get access to the Stream dashboard.",
   },
   {
-    title: "Create a session",
+    title: "Add the SDK",
     description:
-      "Send an amount in minor units and an ISO 4217 currency. Stream returns a checkout URL for a time-limited session.",
+      "Drop Stream’s hosted checkout into your site with a few lines of code. No separate gateway to integrate.",
   },
   {
-    title: "Mount and verify",
+    title: "Start accepting payments",
     description:
-      "Attach the SDK to a container, listen for success, then confirm the attempt server-side before you fulfil the order.",
+      "Take one-off or recurring payments, track them in the dashboard, and get paid out.",
   },
 ];
 
@@ -80,36 +83,31 @@ export const endpoints = [
   {
     method: "GET",
     path: "/api/payment-sessions",
-    note: "List sessions",
-  },
-  {
-    method: "GET",
-    path: "/api/payment-attempts",
-    note: "Inspect attempts",
+    note: "List payment sessions",
   },
   { method: "POST", path: "/api/customers", note: "Create a customer" },
 ];
 
 export const securityPoints = [
   {
-    title: "Publishable keys only",
+    title: "Hosted, isolated checkout",
     description:
-      "The browser SDK accepts pk_ keys and rejects secrets outright, so there is nothing sensitive to leak in client code.",
+      "Card details are handled by Stream’s hosted checkout and never stored on your site.",
   },
   {
-    title: "Isolated by default",
+    title: "Secure saved payments",
     description:
-      "Checkout runs in a sandboxed iframe on Stream’s origin. Your page cannot read its contents, and card data never reaches your servers.",
+      "Recurring billing uses payment methods stored securely by Stream, not in your codebase.",
   },
   {
-    title: "Verified messages",
+    title: "Recorded end to end",
     description:
-      "Every checkout event is checked against the iframe’s window and origin. Another tab cannot spoof a payment on your page.",
+      "Every attempt, status, and reference is kept with the payment for reconciliation.",
   },
   {
-    title: "Verify before fulfilment",
+    title: "A versioned API",
     description:
-      "A success event is a UX signal, not proof. Confirm the attempt on your server before releasing goods or services.",
+      "Your integration is versioned, so improvements do not break your checkout.",
   },
 ];
 
@@ -117,31 +115,36 @@ export const faqs = [
   {
     question: "What is Stream?",
     answer:
-      "Stream is payments infrastructure: a hosted checkout page, a versioned REST API, a typed JavaScript SDK, and a dashboard for customers, products, transactions, and API keys.",
+      "Stream is payment infrastructure for Caribbean businesses. Create an account, add the SDK, and start accepting payments online.",
   },
   {
-    question: "How much code does checkout take?",
+    question: "Do I need a separate payment gateway?",
     answer:
-      "One mount. Create a Stream instance with a purpose, amount, and currency, attach it to a container, and the hosted page takes over from there.",
+      "No. Stream provides the checkout and payment infrastructure, so you do not need a separate gateway contract or a bank-by-bank integration.",
+  },
+  {
+    question: "Are recurring payments supported?",
+    answer:
+      "Yes. Recurring billing is built in, so you do not have to build and maintain a subscription engine.",
+  },
+  {
+    question: "How do payouts work?",
+    answer:
+      "We remit what you collect to your business account, with no manual follow-up.",
+  },
+  {
+    question: "Do I need a developer?",
+    answer:
+      "No. The hosted checkout is designed to be easy to add. Developers can use the SDK and API when they want more control.",
   },
   {
     question: "Does card data touch my servers?",
     answer:
-      "No. The checkout form is served from Stream’s origin inside a sandboxed iframe. Your page and servers only see events and identifiers.",
+      "No. Sensitive payment details are handled by Stream’s hosted checkout and never stored on your site.",
   },
   {
-    question: "Can I save a card and charge it later?",
+    question: "Which currencies are supported?",
     answer:
-      "Yes. Use the registerCard purpose with a customerId to save a card without charging it, then create a payment for that customer when you are ready.",
-  },
-  {
-    question: "How are amounts represented?",
-    answer:
-      "As positive integers in the currency’s minor units, paired with an ISO 4217 code. JMD 1,250.00 is 125000 JMD — no floating-point rounding to guess at.",
-  },
-  {
-    question: "Do I still need a backend?",
-    answer:
-      "For fulfilment, yes. The SDK creates the checkout session from the browser, but payment confirmation belongs on your server, where you can verify the attempt before shipping anything.",
+      "Stream supports local currencies in the markets we serve, so prices and payments feel local to your customers.",
   },
 ];

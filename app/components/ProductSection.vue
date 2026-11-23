@@ -7,8 +7,8 @@ import { features } from "~/utils/site";
     <div class="mx-auto max-w-6xl px-6">
       <SectionHeading
         eyebrow="Product"
-        title="Everything around the payment."
-        lead="A checkout is the moment. Stream also handles the customers, catalogue, keys, and records that make the moment repeatable."
+        title="Everything you need to get paid."
+        lead="A checkout is the moment. Stream also handles the billing, customers, and payouts that make it repeatable."
       />
 
       <div class="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">

@@ -15,7 +15,7 @@ const year = new Date().getFullYear();
           <NuxtLink
             to="/"
             class="flex items-center gap-2.5"
-            aria-label="Stream — home"
+            aria-label="Stream Payments — home"
           >
             <BrandMark />
             <span class="text-[17px] font-semibold tracking-tight text-slate-900">
@@ -23,8 +23,8 @@ const year = new Date().getFullYear();
             </span>
           </NuxtLink>
           <p class="mt-4 text-sm leading-6 text-slate-600">
-            Payments infrastructure for modern businesses. Hosted checkout, a
-            typed SDK, and a dashboard that keeps the details in order.
+            Payment infrastructure for the Caribbean. Easy onboarding,
+            recurring billing, and payouts handled for you.
           </p>
         </div>
 
@@ -56,8 +56,8 @@ const year = new Date().getFullYear();
       <div
         class="mt-12 flex flex-col gap-2 border-t border-slate-200 pt-6 text-xs text-slate-500 sm:flex-row sm:items-center sm:justify-between"
       >
-        <p>© {{ year }} Stream. All rights reserved.</p>
-        <p>Publishable keys in the browser. Secrets on the server.</p>
+        <p>© {{ year }} Stream Payments. All rights reserved.</p>
+        <p>Built for Caribbean businesses.</p>
       </div>
     </div>
   </footer>

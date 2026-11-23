@@ -22,9 +22,9 @@ import { endpoints } from "~/utils/site";
           A small API with sharp edges.
         </h2>
         <p class="mt-4 text-base leading-7 text-slate-400">
-          Predictable resources, explicit amounts, and errors you can act on.
-          Install the typed SDK, or call the API from any language that speaks
-          HTTP.
+          Predictable resources, explicit amounts, and recurring billing that
+          doesn’t depend on your cron jobs. Install the typed SDK, or call the
+          API from any language that speaks HTTP.
         </p>
 
         <div class="mt-8 border-y border-white/10">
@@ -58,7 +58,7 @@ import { endpoints } from "~/utils/site";
 Content-Type: application/json
 
 {
-  <span class="text-slate-400">"publishableKey"</span>: <span class="text-emerald-300">"pk_live_..."</span>,
+  <span class="text-slate-400">"publishableKey"</span>: <span class="text-emerald-300">"pk_test_..."</span>,
   <span class="text-slate-400">"purpose"</span>: <span class="text-emerald-300">"payment"</span>,
   <span class="text-slate-400">"amountMinor"</span>: <span class="text-sky-300">125000</span>,
   <span class="text-slate-400">"currency"</span>: <span class="text-emerald-300">"JMD"</span>
@@ -66,7 +66,7 @@ Content-Type: application/json
 
 <span class="text-emerald-300">200 OK</span>
 {
-  <span class="text-slate-400">"checkoutUrl"</span>: <span class="text-emerald-300">"/?publishableKey=pk_...&sessionId=ps_..."</span>
+  <span class="text-slate-400">"checkoutUrl"</span>: <span class="text-emerald-300">"/?sessionId=ps_..."</span>
 }</code></pre>
       </CodeWindow>
 

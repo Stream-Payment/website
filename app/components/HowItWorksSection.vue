@@ -10,8 +10,8 @@ import { steps } from "~/utils/site";
     <div class="mx-auto max-w-6xl px-6">
       <SectionHeading
         eyebrow="How it works"
-        title="Three steps, then it is live."
-        lead="No orchestration layer to build, no card form to maintain. The integration stays small on purpose."
+        title="Three steps to your first payment."
+        lead="No billing engine to maintain, no bank-by-bank plumbing. The setup stays small on purpose."
       />
 
       <ol class="mt-12 grid gap-10 sm:grid-cols-3 sm:gap-8">

@@ -19,7 +19,7 @@ export default defineNuxtConfig({
   app: {
     head: {
       htmlAttrs: { lang: "en" },
-      title: "Stream — Payments infrastructure for modern businesses",
+      title: "Stream Payments — Payment infrastructure for the Caribbean",
       meta: [
         { name: "theme-color", content: "#1B4EF5" },
         { name: "format-detection", content: "telephone=no" },

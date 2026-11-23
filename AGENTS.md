@@ -1,10 +1,12 @@
 # AGENTS.md
 
-Guidance for working in the Stream marketing site.
+Guidance for working in the Stream Payments marketing site.
 
 ## Project overview
 
-A one-page, server-rendered marketing site for Stream Payments.
+A one-page, server-rendered marketing site for Stream Payments: payment
+infrastructure for the Caribbean. The copy leads with easy onboarding, recurring
+billing, and payouts, while keeping the SDK and API story credible.
 
 - Nuxt 4 + Vue 3, SSR enabled (`ssr: true`)
 - Tailwind CSS 4 through `@tailwindcss/vite`
@@ -59,10 +61,18 @@ npm run preview     # serve the production build
 
 ## Content rules
 
+- Position Stream Payments as payment infrastructure for the Caribbean. Balance
+  the business case (easy onboarding, recurring billing, payouts) with the
+  technical story (SDK, API, hosted checkout).
+- Do not mention the underlying gateway or any specific bank partner in the
+  copy. Refer to the problem generically as separate gateway setup or
+  bank-by-bank integration.
+- Never put a live key in the copy. Use `pk_test_...` placeholders only, and do
+  not publish iframe, postMessage, permission, or other implementation internals.
 - Do not invent customer logos, testimonials, uptime numbers, pricing, or
-  unsupported feature claims. Use facts from the platform and SDK docs.
+  unsupported feature claims.
 - British-leaning prose is fine; keep sentences short and concrete.
-- Use `Stream` (capitalised) and `pk_` / `sk_` for keys.
+- Use `Stream Payments` for the company and `Stream` for the product.
 
 ## Environment
 

@@ -19,7 +19,7 @@ const homePrefix = computed(() => (route.path === "/" ? "" : "/"));
       <NuxtLink
         to="/"
         class="flex items-center gap-2.5"
-        aria-label="Stream — home"
+        aria-label="Stream Payments — home"
         @click="open = false"
       >
         <BrandMark />

@@ -20,6 +20,26 @@ defineProps<{ name: FeatureIconName }>();
       <path d="M6.5 15.25h4" />
     </template>
 
+    <template v-else-if="name === 'repeat'">
+      <path d="m17 2 4 4-4 4" />
+      <path d="M3 11v-1a4 4 0 0 1 4-4h14" />
+      <path d="m7 22-4-4 4-4" />
+      <path d="M21 13v1a4 4 0 0 1-4 4H3" />
+    </template>
+
+    <template v-else-if="name === 'bank'">
+      <path d="M3 10.5 12 4l9 6.5" />
+      <path d="M5.5 10.5V19M9.75 10.5V19M14.25 10.5V19M18.5 10.5V19" />
+      <path d="M3 19.5h18" />
+    </template>
+
+    <template v-else-if="name === 'dashboard'">
+      <rect x="3" y="3" width="7" height="7" rx="1.5" />
+      <rect x="14" y="3" width="7" height="7" rx="1.5" />
+      <rect x="3" y="14" width="7" height="7" rx="1.5" />
+      <rect x="14" y="14" width="7" height="7" rx="1.5" />
+    </template>
+
     <template v-else-if="name === 'card'">
       <path d="M6.25 4.75h11.5v14.5L12 15.4l-5.75 3.85V4.75Z" />
       <path d="M9.25 8.75h5.5" />

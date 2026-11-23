@@ -5,7 +5,7 @@ if (event) {
 }
 
 useSeoMeta({
-  title: "Page not found — Stream",
+  title: "Page not found — Stream Payments",
   description: "The page you were looking for does not exist.",
   robots: "noindex, follow",
 });

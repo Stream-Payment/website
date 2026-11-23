@@ -6,9 +6,9 @@ const base = siteUrl.replace(/\/+$/, "");
 const canonical = `${base}/`;
 const ogImage = `${base}/og.png`;
 
-const title = "Stream — Payments infrastructure for modern businesses";
+const title = "Stream Payments — Payment infrastructure for the Caribbean";
 const description =
-  "Hosted checkout, saved cards, a typed JavaScript SDK, and a dashboard for customers, products, and transactions. Card data never touches your servers.";
+  "Create an account, add the SDK, and start accepting payments online. Stream gives Caribbean businesses recurring billing and payouts out of the box.";
 
 useSeoMeta({
   title,
@@ -17,11 +17,10 @@ useSeoMeta({
   ogDescription: description,
   ogType: "website",
   ogUrl: canonical,
-  ogSiteName: "Stream",
+  ogSiteName: "Stream Payments",
   ogLocale: "en_US",
   ogImage,
-  ogImageAlt:
-    "Stream — payments infrastructure for modern businesses",
+  ogImageAlt: "Stream Payments — payment infrastructure for the Caribbean",
   ogImageWidth: 1200,
   ogImageHeight: 630,
   twitterCard: "summary_large_image",
@@ -37,16 +36,19 @@ const schema = {
     {
       "@type": "Organization",
       "@id": `${canonical}#organization`,
-      name: "Stream",
+      name: "Stream Payments",
+      alternateName: "Stream",
       url: canonical,
       logo: `${base}/favicon.svg`,
       description,
+      slogan: "Easy payment infrastructure for the Caribbean.",
+      areaServed: { "@type": "Place", name: "Caribbean" },
     },
     {
       "@type": "WebSite",
       "@id": `${canonical}#website`,
       url: canonical,
-      name: "Stream",
+      name: "Stream Payments",
       inLanguage: "en",
       publisher: { "@id": `${canonical}#organization` },
     },

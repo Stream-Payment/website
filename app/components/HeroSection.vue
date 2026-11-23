@@ -1,8 +1,10 @@
 <script setup lang="ts">
+const { dashboardUrl } = useRuntimeConfig().public;
+
 const facts = [
-  "Hosted, iframe-isolated checkout",
-  "Versioned REST API",
-  "Granular key permissions",
+  "No separate gateway",
+  "No billing engine to build",
+  "No manual payout follow-up",
 ];
 </script>
 
@@ -24,28 +26,27 @@ const facts = [
         <p
           class="text-xs font-semibold uppercase tracking-[0.18em] text-brand-600"
         >
-          Payments infrastructure
+          Easy payment infrastructure
         </p>
 
         <h1
           class="mt-4 text-4xl font-semibold leading-[1.05] tracking-[-0.03em] text-balance text-slate-900 sm:text-5xl lg:text-[3.5rem]"
         >
-          Money moves better on
-          <span class="text-brand-600">Stream</span>.
+          Payments built for the
+          <span class="text-brand-600">Caribbean</span>.
         </h1>
 
         <p class="mt-6 max-w-xl text-lg leading-8 text-slate-600">
-          Hosted checkout, saved cards, and the operations behind them. One
-          clean API, one dashboard, and card data that never touches your
-          servers.
+          Create an account, add the SDK to your site, and start accepting
+          payments online. Recurring billing and payouts are built in.
         </p>
 
         <div class="mt-8 flex flex-col gap-3 sm:flex-row">
           <a
-            href="#developers"
+            :href="dashboardUrl"
             class="group inline-flex h-11 items-center justify-center gap-2 rounded-lg bg-brand-600 px-5 text-sm font-medium text-white transition-colors hover:bg-brand-700"
           >
-            Start building
+            Create an account
             <span
               class="transition-transform group-hover:translate-x-0.5"
               aria-hidden="true"
@@ -62,7 +63,7 @@ const facts = [
         </div>
 
         <p class="mt-6 text-xs leading-5 text-slate-500">
-          Publishable-key SDK · Versioned REST API · Server-side verification
+          Easy SDK · Recurring payments · Payouts handled
         </p>
       </div>
 
@@ -75,15 +76,11 @@ const facts = [
           <CodeWindow filename="checkout.ts">
 <pre v-pre class="font-mono"><code><span class="text-violet-300">import</span> { Stream } <span class="text-violet-300">from</span> <span class="text-emerald-300">"@stream/stream-js"</span>;
 
-<span class="text-violet-300">const</span> stream = <span class="text-violet-300">new</span> <span class="text-amber-200">Stream</span>(<span class="text-emerald-300">"pk_live_..."</span>, {
+<span class="text-violet-300">const</span> stream = <span class="text-violet-300">new</span> <span class="text-amber-200">Stream</span>(<span class="text-emerald-300">"pk_test_..."</span>, {
   purpose: <span class="text-emerald-300">"payment"</span>,
   amountMinor: <span class="text-sky-300">125000</span>,
   currency: <span class="text-emerald-300">"JMD"</span>,
-  returnUrl: <span class="text-emerald-300">"https://shop.example/thanks"</span>,
-});
-
-stream.<span class="text-sky-300">on</span>(<span class="text-emerald-300">"success"</span>, (payment) => {
-  console.<span class="text-sky-300">log</span>(<span class="text-emerald-300">"Paid"</span>, payment);
+  returnUrl: <span class="text-emerald-300">"https://your-site.com/thanks"</span>,
 });
 
 <span class="text-violet-300">await</span> stream.<span class="text-sky-300">mount</span>(<span class="text-emerald-300">"#checkout"</span>);</code></pre>
@@ -92,7 +89,7 @@ stream.<span class="text-sky-300">on</span>(<span class="text-emerald-300">"succ
         <p
           class="relative mt-4 text-center font-mono text-[11px] uppercase tracking-[0.14em] text-slate-500"
         >
-          Hosted checkout · typed SDK
+          A few lines to your first payment
         </p>
       </div>
     </div>

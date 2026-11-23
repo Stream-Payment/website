@@ -8,7 +8,7 @@ import { securityPoints } from "~/utils/site";
       <SectionHeading
         eyebrow="Security"
         title="Trust is the product."
-        lead="A payment page is a security boundary. Stream treats it like one — in the browser, in transit, and before you fulfil an order."
+        lead="Accepting payments means handling sensitive details. Stream keeps that boundary where it belongs, so you can focus on selling."
       />
 
       <div class="grid gap-x-8 gap-y-10 sm:grid-cols-2">
