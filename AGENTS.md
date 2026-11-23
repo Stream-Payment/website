@@ -51,8 +51,8 @@ npm run preview     # serve the production build
   client-only content that matters to search.
 - Keep `useSeoMeta` (title, description, canonical, OG/Twitter) and the JSON-LD
   graph in `app/pages/index.vue` in sync with the visible copy.
-- URLs in canonical/OG tags come from `NUXT_PUBLIC_SITE_URL`; never hardcode a
-  production domain.
+- URLs in canonical/OG tags come from `NUXT_PUBLIC_SITE_URL` (default
+  `https://streampayjm.com`); never hardcode them in page or component markup.
 - Update `server/routes/sitemap.xml.ts` when adding routes.
 
 ## Content rules
@@ -69,4 +69,5 @@ npm run preview     # serve the production build
 | `NUXT_PUBLIC_SITE_URL`      | Canonical origin for SEO files      |
 | `NUXT_PUBLIC_DASHBOARD_URL` | Sign-in / dashboard link destination |
 
-Both are public and read through `useRuntimeConfig().public`.
+Both are public and read through `useRuntimeConfig().public`. Their built-in
+defaults are `https://streampayjm.com` and `https://app.streampayjm.com`.

@@ -35,22 +35,27 @@ npm run preview     # serve the production build locally
 
 Copy `.env.example` to `.env` for local overrides. Both values are public.
 
-| Variable                    | Purpose                                              | Fallback                |
-| --------------------------- | ---------------------------------------------------- | ----------------------- |
-| `NUXT_PUBLIC_SITE_URL`      | Canonical URL, Open Graph URLs, sitemap, robots       | `http://localhost:3000` |
-| `NUXT_PUBLIC_DASHBOARD_URL` | “Sign in” / “Open the dashboard” destination          | `http://localhost:4200` |
+| Variable                    | Purpose                                        | Fallback                      |
+| --------------------------- | ---------------------------------------------- | ----------------------------- |
+| `NUXT_PUBLIC_SITE_URL`      | Canonical URL, Open Graph URLs, sitemap, robots | `https://streampayjm.com`     |
+| `NUXT_PUBLIC_DASHBOARD_URL` | “Sign in” / “Open the dashboard” destination    | `https://app.streampayjm.com` |
 
 Set `NUXT_PUBLIC_SITE_URL` to the real origin in production — canonical tags,
 `og:url`, `og:image`, `robots.txt`, and `sitemap.xml` are all derived from it.
+It defaults to `https://streampayjm.com`, so a plain Vercel deploy is correct
+without any environment variables.
 
 ## Deploy to Vercel
 
 1. Push this repository to GitHub as `website`.
 2. Import it at [vercel.com/new](https://vercel.com/new). Vercel detects Nuxt
    automatically; leave the build command (`nuxt build`) and output defaults.
-3. Add `NUXT_PUBLIC_SITE_URL` (and `NUXT_PUBLIC_DASHBOARD_URL`) for Production
-   and Preview, then deploy.
-4. After the first deploy, confirm `https://<domain>/robots.txt`,
+3. Add `NUXT_PUBLIC_SITE_URL=https://streampayjm.com` (and
+   `NUXT_PUBLIC_DASHBOARD_URL=https://app.streampayjm.com`) for Production and
+   Preview if you want to be explicit — both are the built-in defaults.
+4. Add `streampayjm.com` as the project domain and redirect `www.streampayjm.com`
+   to the apex so canonical URLs stay consistent.
+5. After the first deploy, confirm `https://streampayjm.com/robots.txt`,
    `/sitemap.xml`, and `/og.png` resolve, then submit the sitemap in Google
    Search Console and run the [Rich Results Test](https://search.google.com/test/rich-results).
 
@@ -123,5 +128,6 @@ These match the rest of the Stream product:
 
 - The site is intentionally SSR rather than prerendered so every request is
   server-rendered. Nitro caches static assets; the page itself is cheap.
-- The dashboard link defaults to the Angular dev server at port 4200. Set
-  `NUXT_PUBLIC_DASHBOARD_URL` to the deployed dashboard.
+- The dashboard link defaults to <https://app.streampayjm.com>. Set
+  `NUXT_PUBLIC_DASHBOARD_URL=http://localhost:4200` when working on the
+  dashboard locally.

@@ -1,7 +1,7 @@
 import tailwindcss from "@tailwindcss/vite";
 
 const siteUrl = (
-  process.env.NUXT_PUBLIC_SITE_URL ?? "http://localhost:3000"
+  process.env.NUXT_PUBLIC_SITE_URL ?? "https://streampayjm.com"
 ).replace(/\/+$/, "");
 
 export default defineNuxtConfig({
@@ -36,7 +36,8 @@ export default defineNuxtConfig({
     public: {
       siteUrl,
       dashboardUrl:
-        process.env.NUXT_PUBLIC_DASHBOARD_URL ?? "http://localhost:4200",
+        process.env.NUXT_PUBLIC_DASHBOARD_URL ??
+        "https://app.streampayjm.com",
     },
   },
 
