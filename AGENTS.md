@@ -35,7 +35,7 @@ npm run preview     # serve the production build
 - `app/assets/css/main.css` — Tailwind entry, brand tokens, base and utility
   classes.
 - `server/routes/robots.txt.ts`, `server/routes/sitemap.xml.ts` — crawler files.
-- `public/` — favicon, apple touch icon, OG image, web manifest.
+- `public/` — logo, favicon, apple touch icon, OG image, web manifest.
 
 ## Design standards
 

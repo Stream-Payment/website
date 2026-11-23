@@ -1,16 +1,30 @@
 <template>
   <svg
-    class="h-8 w-8 shrink-0"
-    viewBox="0 0 32 32"
+    class="h-8 w-8 shrink-0 text-brand-600"
+    viewBox="0 0 152 152"
     fill="none"
     aria-hidden="true"
   >
-    <rect width="32" height="32" rx="8" class="fill-brand-600" />
     <path
-      d="M8 11.25h16M8 16h11M8 20.75h7"
-      stroke="#fff"
-      stroke-width="2.5"
+      d="M9.001 129c11.167 7 16.75 14 33.5 14 22.333 0 44.667-28 67-28 16.75 0 22.333 7 33.5 14"
+      stroke="currentColor"
+      stroke-width="18"
       stroke-linecap="round"
+      stroke-linejoin="round"
+    />
+    <path
+      d="M9.001 23c11.167 7 16.75 14 33.5 14 22.333 0 44.667-28 67-28 16.75 0 22.333 7 33.5 14"
+      stroke="currentColor"
+      stroke-width="18"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    />
+    <path
+      d="M9.001 76.5c11.167 7 16.75 14 33.5 14 22.333 0 44.667-28 67-28 16.75 0 22.333 7 33.5 14"
+      stroke="currentColor"
+      stroke-width="18"
+      stroke-linecap="round"
+      stroke-linejoin="round"
     />
   </svg>
 </template>
