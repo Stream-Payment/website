@@ -1,9 +1,11 @@
 <script setup lang="ts">
-import { ref } from "vue";
+import { computed, ref } from "vue";
 import { navLinks } from "~/utils/site";
 
 const open = ref(false);
 const { dashboardUrl } = useRuntimeConfig().public;
+const route = useRoute();
+const homePrefix = computed(() => (route.path === "/" ? "" : "/"));
 </script>
 
 <template>
@@ -30,7 +32,7 @@ const { dashboardUrl } = useRuntimeConfig().public;
         <a
           v-for="link in navLinks"
           :key="link.href"
-          :href="link.href"
+          :href="`${homePrefix}${link.href}`"
           class="text-sm text-slate-600 transition-colors hover:text-slate-900"
         >
           {{ link.label }}
@@ -45,7 +47,7 @@ const { dashboardUrl } = useRuntimeConfig().public;
           Sign in
         </a>
         <a
-          href="#get-started"
+          :href="`${homePrefix}#get-started`"
           class="inline-flex h-9 items-center rounded-lg bg-brand-600 px-3.5 text-sm font-medium text-white transition-colors hover:bg-brand-700"
         >
           Get started
@@ -86,7 +88,7 @@ const { dashboardUrl } = useRuntimeConfig().public;
         <a
           v-for="link in navLinks"
           :key="link.href"
-          :href="link.href"
+          :href="`${homePrefix}${link.href}`"
           class="rounded-lg py-2.5 text-sm text-slate-700 hover:text-brand-600"
           @click="open = false"
         >

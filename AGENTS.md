@@ -24,6 +24,8 @@ npm run preview     # serve the production build
 ## Layout
 
 - `app/pages/index.vue` — page composition and all SEO metadata / JSON-LD.
+- `app/pages/[...slug].vue` — catch-all 404. Sets a 404 response status and
+  `noindex`; keep it out of the sitemap.
 - `app/utils/site.ts` — canonical copy for nav, features, steps, endpoints,
   security points, and FAQs. Add or edit content there, not inline in markup
   (FAQ structured data reuses it).

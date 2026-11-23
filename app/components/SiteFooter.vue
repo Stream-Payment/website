@@ -1,5 +1,9 @@
 <script setup lang="ts">
+import { computed } from "vue";
+
 const { dashboardUrl } = useRuntimeConfig().public;
+const route = useRoute();
+const homePrefix = computed(() => (route.path === "/" ? "" : "/"));
 const year = new Date().getFullYear();
 </script>
 
@@ -29,11 +33,11 @@ const year = new Date().getFullYear();
             Explore
           </h2>
           <ul class="mt-4 space-y-2.5 text-sm">
-            <li><a href="#product" class="text-slate-600 hover:text-brand-600">Product</a></li>
-            <li><a href="#how-it-works" class="text-slate-600 hover:text-brand-600">How it works</a></li>
-            <li><a href="#developers" class="text-slate-600 hover:text-brand-600">Developers</a></li>
-            <li><a href="#security" class="text-slate-600 hover:text-brand-600">Security</a></li>
-            <li><a href="#faq" class="text-slate-600 hover:text-brand-600">FAQ</a></li>
+            <li><a :href="`${homePrefix}#product`" class="text-slate-600 hover:text-brand-600">Product</a></li>
+            <li><a :href="`${homePrefix}#how-it-works`" class="text-slate-600 hover:text-brand-600">How it works</a></li>
+            <li><a :href="`${homePrefix}#developers`" class="text-slate-600 hover:text-brand-600">Developers</a></li>
+            <li><a :href="`${homePrefix}#security`" class="text-slate-600 hover:text-brand-600">Security</a></li>
+            <li><a :href="`${homePrefix}#faq`" class="text-slate-600 hover:text-brand-600">FAQ</a></li>
           </ul>
         </nav>
 
@@ -43,7 +47,7 @@ const year = new Date().getFullYear();
           </h2>
           <ul class="mt-4 space-y-2.5 text-sm">
             <li><a :href="dashboardUrl" class="text-slate-600 hover:text-brand-600">Dashboard</a></li>
-            <li><a href="#get-started" class="text-slate-600 hover:text-brand-600">Get started</a></li>
+            <li><a :href="`${homePrefix}#get-started`" class="text-slate-600 hover:text-brand-600">Get started</a></li>
             <li><a href="#main" class="text-slate-600 hover:text-brand-600">Back to top</a></li>
           </ul>
         </nav>

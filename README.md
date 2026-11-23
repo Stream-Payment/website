@@ -90,6 +90,7 @@ app/
     FeatureIcon.vue
     BrandMark.vue
   pages/index.vue             # one-pager composition + SEO metadata/JSON-LD
+  pages/[...slug].vue         # branded 404, server-rendered with noindex
   utils/site.ts               # all copy: nav, features, steps, FAQs, endpoints
 public/                       # favicon, apple icon, OG image, webmanifest
 server/routes/
