@@ -1,6 +1,6 @@
 <template>
   <svg
-    class="h-8 w-8 shrink-0 text-brand-600"
+    class="h-6 w-6 shrink-0 text-brand-600"
     viewBox="0 0 152 152"
     fill="none"
     aria-hidden="true"
